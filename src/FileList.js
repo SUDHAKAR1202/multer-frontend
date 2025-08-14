@@ -5,7 +5,7 @@ function FileList() {
     const [files, setFiles]= useState([]);
 
     useEffect(()=> {
-        axios.get("http://localhost:5000/files")
+        axios.get("https://multer-backend-deploy.onrender.com/files")
            .then(res => setFiles(res.data))
            .catch(err => console.error(err))
     }, []);
@@ -16,7 +16,7 @@ function FileList() {
             <ul>
                 {files.map(file => (
                     <li key={file._id}>
-                        <a href={`http://localhost:5000/${file.path}`} target="_blank" rel="noreferrer">
+                        <a href={`https://multer-backend-deploy.onrender.com/${file.path}`} target="_blank" rel="noreferrer">
                        {file.filename}
                        </a> ({(file.size / 1024).toFixed(2)} KB)
                     </li>

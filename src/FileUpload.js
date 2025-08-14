@@ -11,7 +11,7 @@ function FileUpload() {
         const formData = new FormData();
         formData.append("file", file);
         try {
-            await axios.post("http://localhost:5000/upload", formData);
+            await axios.post("https://multer-backend-deploy.onrender.com/upload", formData);
             alert("File uploaded successfully");
             window.location.reload();
         } catch (err) {
