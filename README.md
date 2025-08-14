@@ -1,6 +1,6 @@
-the deploy backend link : https://multer-backend-deploy.onrender.com/
+the deploy backend link : https://file-upload-3-46jr.onrender.com/
 
-frontend depoly link : https://multer-frontend-jcw7.onrender.com/
+frontend deploy link : https://file-upload-4-kive.onrender.com/
 
 git hub backend repo link : https://github.com/SUDHAKAR1202/multer-backend
 
