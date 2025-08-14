@@ -6,19 +6,33 @@ function FileUpload() {
 
     const handleFileChange = (e) => setFile(e.target.files[0]);
 
-    const handleUpload = async () => {
-        if (!file) return alert("Please select a file");
-        const formData = new FormData();
-        formData.append("file", file);
-        try {
-            await axios.post("https://multer-backend-deploy.onrender.com/upload", formData);
-            alert("File uploaded successfully");
-            window.location.reload();
-        } catch (err) {
-            console.error(err);
-            alert("Upload failed");
+  const handleUpload = async () => {
+  if (!file) return alert("Please select a file");
+  
+  const formData = new FormData();
+  formData.append("file", file);
+  
+  try {
+    const response = await axios.post(
+      "https://multer-backend-deploy.onrender.com/upload", 
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
         }
-    };
+      }
+    );
+    
+    alert("File uploaded successfully!");
+    console.log("File URL:", response.data.file.url);
+  
+    window.location.reload(); 
+    
+  } catch (err) {
+    console.error("Upload error:", err);
+    alert(`Upload failed: ${err.response?.data?.error || err.message}`);
+  }
+};
 
     return (
         <div>
